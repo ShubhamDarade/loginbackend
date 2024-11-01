@@ -9,7 +9,11 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: process.env.CORS, 
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],         
+  credentials: true                                 
+}));
 app.use(express.json());
 
 // Routes
